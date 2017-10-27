@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Formulir Tambah Data</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/validator.js"></script>
+</head>
+<body>
+
+	<h1 align="center">Tambah Data Penulis</h1><br/>
+        <div class="container">
+	<form th:action="@{/tambah-data}" method="post" th:object="${pnls}" class="form-horizontal" data-toggle="validator" role="form">
+            <div class="form-group has-feedback">
+            <label class="control-label col-sm-4" for="id">ID  : </label>
+            <div class="col-sm-4">
+                <input type="text" th:field="*{id}" class="form-control" pattern="^[_0-9]{1,}$" required="" data-error="Isikan hanya angka!" placeholder="Masukan ID Penulis..." />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span> 
+                <div class="help-block with-errors"></div>
+            </div>
+            </div><br/>
+            
+            <div class="form-group has-feedback">
+            <label class="control-label col-sm-4" for="nama">Nama  : </label>
+            <div class="col-sm-4">
+                <input type="text" th:field="*{nama}" class="form-control" pattern="^[ A-z]{1,}$" required="" data-error="Isikan dengan huruf!" placeholder="Masukan Nama Penulis..." />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span> 
+                <div class="help-block with-errors"></div>
+            </div>
+            </div><br/>
+            
+            <div class="form-group has-feedback">
+            <label class="control-label col-sm-4" for="judul">Judul Buku  : </label>
+            <div class="col-sm-4">
+                <input type="text" th:field="*{judul_buku}" class="form-control" required="" data-error="" placeholder="Masukan Judul Buku..." />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span> 
+                <div class="help-block with-errors"></div>
+            </div>
+            </div><br/>
+            <div class="form-group">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-2">
+                    <input type = "submit" value ="Simpan Data" name = "Simpan"  class="form-control btn-success" style="text-align: center;" />
+                </div>
+            </div>
+            
+
+	</form>
+        </div>
+
+</body>
+</html>

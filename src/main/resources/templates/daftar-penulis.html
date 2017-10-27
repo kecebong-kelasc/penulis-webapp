@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Daftar Penulis</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+  		<script src="js/jquery-3.2.1.min.js"></script>
+  		<script src="js/bootstrap.min.js"></script>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h1 align="center">Daftar Penulis</h1><br/>
+        <div class="container">
+        <table align="center" class="table table-bordered table-striped table-hover" style="text-align: center;">
+            <thead style="background-color: #00b050; color: azure; font-size: 16px">
+                <tr style="text-align: center;">
+                    <td>ID</td>
+                    <td>NAMA</td>
+                    <td>JUDUL BUKU</td>
+                    <td>AKSI</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="pnls : ${daftarPenulis}">
+                    <td th:text="${pnls.id}"></td>
+                    <td th:text="${pnls.nama}"></td>
+                    <td th:text="${pnls.judul_buku}"></td>
+                    <td>
+                    <a th:href="@{/edit(id=${pnls.id})}" class='btn btn-warning'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span>
+                    Ubah
+                    </a>
+                    <a th:href="@{/delete(id=${pnls.id})}" class='btn btn-danger'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span>
+                    Hapus
+                    </a>
+                    </td>
+                </tr>
+
+            </tbody>
+            <tfoot style="background-color: #2b5885;">
+                <tr>
+                    <td><a href="/tambah-data" class="btn btn-primary"><span class='glyphicon glyphicon-plus-sign' aria-hidden='true'></span>
+                            Tambah Data</a></td>
+                </tr>
+            </tfoot>
+
+        </table>
+        </div>
+    </body>
+</html>
